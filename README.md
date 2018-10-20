@@ -36,3 +36,7 @@ The port the node application is running an. Will be exposed as port 8080 on loc
     * Nuxt: `NODE_PORT=3000`
 * `docker-compose up -d`
     * The output is available on port 8080 of localhost: http://localhost:8080/
+
+# Known problems
+
+* Running `./node-bash` while the container is not up is using a different container. Changes made to the container will not be reflected in the nodejs container that is started with `docker-compose up`. This is a problem with docker-compose run, which creates new containers for every call.
