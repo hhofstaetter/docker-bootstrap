@@ -1,0 +1,13 @@
+version: "3"
+services:
+    nodejs:
+        build:
+            context: .
+            dockerfile: docker/node/Dockerfile
+        user: "node"
+        ports:
+          - 8080:${NODE_PORT}
+        volumes:
+        - ${PWD}/${NODE_DIRECTORY}:/home/node/app
+        working_dir: /home/node/app
+        command: ${NODE_COMMAND}

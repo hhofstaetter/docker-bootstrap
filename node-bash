@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+if docker ps | grep dockerbootstrap_nodejs ; then
+    docker-compose exec nodejs bash
+    exit 0
+fi
+docker-compose run --rm nodejs bash
