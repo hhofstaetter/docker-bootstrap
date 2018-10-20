@@ -36,6 +36,15 @@ The port the node application is running an. Will be exposed as port 8080 on loc
     * Nuxt: `NODE_PORT=3000`
 * `docker-compose up -d`
     * The output is available on port 8080 of localhost: http://localhost:8080/
+    
+# Create a new php project
+
+* Configure `PHP_VERSION` and `PHP_DIRECTORY` in the `.env` file
+* Create the directory for the php project
+* Call `./composer-bash` to gt a shell inside the composer docker container
+* Use `composer` to initialize your application
+    * Laravel: `composer create-project laravel/laravel .`
+    * Symfony: `composer create-project symfony/website-skeleton  .`
 
 # Known problems
 

@@ -6,8 +6,18 @@ services:
             dockerfile: docker/node/Dockerfile
         user: "node"
         ports:
-          - 8080:${NODE_PORT}
+        - 8080:${NODE_PORT}
         volumes:
         - ${PWD}/${NODE_DIRECTORY}:/home/node/app
         working_dir: /home/node/app
         command: ${NODE_COMMAND}
+    composer:
+        image: composer:1.7.2
+        volumes:
+        - ${PWD}/${PHP_DIRECTORY}:/app
+        - ${SSH_AUTH_SOCK}:/ssh-auth.sock
+        user: 1000:1000
+        environment:
+        - SSH_AUTH_SOCK=/ssh-auth.sock
+
+
